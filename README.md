@@ -1,7 +1,7 @@
 # Logs Analysis Project
 
 ## TABLE OF CONTENTS
-- [ABOUT](#features)
+- [ABOUT](#about)
 - [SETUP](#setup)
 - [CREATOR](#creator)
 
