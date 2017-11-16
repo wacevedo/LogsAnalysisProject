@@ -1,16 +1,17 @@
 import psycopg2
 
+
 def connect(database_name="news"):
     """Connect to the PostgreSQL database. Returns a database connection """
     try:
         db = psycopg2.connect("dbname={}".format(database_name))
         cursor = db.cursor()
-        return db, cursor
+        return (db, cursor)
     except:
         print ("Unable to connect to the database")
 
 
-def get_query_results(query):
+def get_results(query):
     """Return query results for given query """
     db, cursor = connect()
     cursor.execute(query)
@@ -57,9 +58,9 @@ query_3 = (
 if __name__ == '__main__':
     # store query results
     print "Loading, please wait... \n"
-    popular_articles_results = get_query_results(query_1), query_1_title, " views"
-    popular_authors_results = get_query_results(query_2), query_2_title, " views"
-    load_error_days = get_query_results(query_3), query_3_title, "% errors"
+    popular_articles_results = get_results(query_1), query_1_title, " views"
+    popular_authors_results = get_results(query_2), query_2_title, " views"
+    load_error_days = get_results(query_3), query_3_title, "% errors"
 
     # print query results
     print_query_results(popular_articles_results)
