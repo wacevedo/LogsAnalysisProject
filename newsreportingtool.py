@@ -7,8 +7,8 @@ def connect(database_name="news"):
         db = psycopg2.connect("dbname={}".format(database_name))
         cursor = db.cursor()
         return (db, cursor)
-    except:
-        print ("Unable to connect to the database")
+    except Exception:
+        print("Unable to connect to the database")
 
 
 def get_results(query):
@@ -20,9 +20,9 @@ def get_results(query):
 
 
 def print_query_results(query_results):
-    print (query_results[1])
+    print(query_results[1])
     for results in query_results[0]:
-        print ("\t" + results[0] + " - " + str(results[1]) + query_results[2])
+        print("\t" + results[0] + " - " + str(results[1]) + query_results[2])
     print "\n"
 
 
